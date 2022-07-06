@@ -98,7 +98,7 @@ post `http://3.23.95.238:3000/v1/auth/save`
   "timestamp": "2022-07-06T00:49:45.204Z",
   "path": "/v1/auth"
 }
-
+```
 
 ##### IF user exist
 
