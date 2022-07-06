@@ -20,48 +20,98 @@ I used JWT (Json web token, package) to authenticate endpoints.
 #### login
 
 url:
-`http://3.128.79.253:3000/v1/auth`
+get `http://3.23.95.238:3000/v1/auth`
 
-<img width="1126" alt="Screen Shot 2021-10-15 at 4 38 06 PM" src="https://user-images.githubusercontent.com/13957703/137556722-ae881d87-7b17-4f46-8221-37a774c4beaf.png">
+<img width="1143" alt="login" src="https://user-images.githubusercontent.com/13957703/177443827-c1bec9f1-b11f-4572-ac5d-e329002bd873.png">
 
 ###### request
 ```json
 {
-   "username": "tyba_user",
-	 "password": "Tyba1234"
+  "username": "tyba_user",
+  "password": "Tyba1234"
 }
 ```
 
 ###### response:
 ```json
-{
-	"data": {
-		"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5YmFfdXNlciIsInN1YiI6NywiaWF0IjoxNjU3MDY4NTg1LCJleHAiOjE2NTcwNjg2NDV9.KYip699hmKiML0E0y_TcaqPtvkjQK3IZJveYAhZoiPg",
-		"user": {
-			"id": 7,
-			"name": "julian molina",
-			"email": "julian@tyba.com",
-			"phone": "3012735668",
-			"address": "calle fake 123",
-			"username": "tyba_user",
-			"password": "hidden",
-			"status": null,
-			"createdAt": "2022-07-05T23:03:18.000Z",
-			"updatedAt": "2022-07-05T23:03:18.000Z"
-		}
-	},
-	"statusCode": 201,
-	"message": "OK",
-	"timestamp": "2022-07-06T00:49:45.204Z",
-	"path": "/v1/auth"
+{  
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5YmFfdXNlciIsInN1YiI6NywiaWF0IjoxNjU3MDY4NTg1LCJleHAiOjE2NTcwNjg2NDV9.KYip699hmKiML0E0y_TcaqPtvkjQK3IZJveYAhZoiPg",
+    "user": {
+      "id": 7,
+      "name": "julian molina",
+      "email": "julian@tyba.com",
+      "phone": "3012735668",
+      "address": "calle fake 123",
+      "username": "tyba_user",
+      "password": "hidden",
+      "status": null,
+      "createdAt": "2022-07-05T23:03:18.000Z",
+      "updatedAt": "2022-07-05T23:03:18.000Z"
+    }
+  },
+  "statusCode": 201,
+  "message": "OK",
+  "timestamp": "2022-07-06T00:49:45.204Z",
+  "path": "/v1/auth"
 }
 ```
 
-## Unauthorized
+## Register a new user
+
+url:
+post `http://3.23.95.238:3000/v1/auth/save`
+
+<img width="1137" alt="register_succes" src="https://user-images.githubusercontent.com/13957703/177445731-4796220d-4459-496e-94f3-fdd9f743c70d.png">
+
+#### Request
+
+```json
+{
+  "name": "julian molina",
+  "email": "julia#2n@tyba.com",
+  "phone": "3012735668",
+  "address": "calle fake 123",
+  "username": "tyba_user_2",
+  "password": "Tyba1234"
+}
+```
+
+##### Response
+
+```json
+{  
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5YmFfdXNlciIsInN1YiI6NywiaWF0IjoxNjU3MDY4NTg1LCJleHAiOjE2NTcwNjg2NDV9.KYip699hmKiML0E0y_TcaqPtvkjQK3IZJveYAhZoiPg",
+    "user": {
+      "id": 7,
+      "name": "julian molina",
+      "email": "julia#2n@tyba.com",
+      "phone": "3012735668",
+      "address": "calle fake 123",
+      "username": "tyba_user_2",
+      "password": "hidden",
+      "status": null,
+      "createdAt": "2022-07-05T23:05:18.000Z",
+      "updatedAt": "2022-07-05T23:05:18.000Z"
+    }
+  },
+  "statusCode": 201,
+  "message": "OK",
+  "timestamp": "2022-07-06T00:49:45.204Z",
+  "path": "/v1/auth"
+}
+
+
+##### IF user exist
+
+<img width="1145" alt="register_exist" src="https://user-images.githubusercontent.com/13957703/177446474-a5ea6748-7ec4-4d75-8b24-5d6c9e48d8d3.png">
+
+## Unauthorized by token expired
 
 If the JWT token is missing the service will return an unauthorized 401 status:
 
-<img width="1124" alt="Screen Shot 2021-10-15 at 5 04 14 PM" src="https://user-images.githubusercontent.com/13957703/137558488-e993b3cf-0acf-41fd-9635-4a8de879bb34.png">
+<img width="1144" alt="unauthorized" src="https://user-images.githubusercontent.com/13957703/177444345-2dd69c75-7ef8-41a0-ab6e-186f49a6cf6c.png">
 
 To fix this the JWT header must be included:
 
@@ -77,15 +127,15 @@ To fix this the JWT header must be included:
 
 POST: `http://3.128.79.253:3000/v1/places`
 
-<img width="1132" alt="Screen Shot 2021-10-15 at 5 04 58 PM" src="https://user-images.githubusercontent.com/13957703/137558456-39c0256d-6b08-47ec-ad4b-652cd233883e.png">
+<img width="1143" alt="places" src="https://user-images.githubusercontent.com/13957703/177445403-e25bdf4d-f60e-4bbe-adc4-714aa3f21b9d.png">
 
 ##### request 
 
 ```json
 {
-	"keyword": "bogota",
-	"lat": "4.624335",
-	"lng": "-74.063644"
+  "keyword": "bogota",
+  "lat": "4.624335",
+  "lng": "-74.063644"
 }
 ```
 
@@ -93,65 +143,65 @@ POST: `http://3.128.79.253:3000/v1/places`
 
 ```json
 {
-	"data": {
-		"html_attributions": [],
-		"results": [
-			{
-				"business_status": "OPERATIONAL",
-				"geometry": {
-					"location": {
-						"lat": 4.627510900000001,
-						"lng": -74.0745419
-					},
-					"viewport": {
-						"northeast": {
-							"lat": 4.628918079892722,
-							"lng": -74.07318367010727
-						},
-						"southwest": {
-							"lat": 4.626218420107278,
-							"lng": -74.07588332989272
-						}
-					}
-				},
-				"icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
-				"icon_background_color": "#FF9E67",
-				"icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
-				"name": "elbarrio Restaurante",
-				"opening_hours": {
-					"open_now": true
-				},
-				"photos": [
-					{
-						"height": 3594,
-						"html_attributions": [
-							"<a href=\"https://maps.google.com/maps/contrib/113041926879556307798\">A Google User</a>"
-						],
-						"photo_reference": "Aap_uEANowYA_6qtIPrSlO27w5S7SR4gqTOZjSZje6po1CSKcrHxauK9Y-DLCCDqeYePLC5eWqVM3dNNHeiClRO53ubTAU84pGWDXQrGj-BzQO0QlHmzarX8oA44H1XyWKc-jp9nd8zNx5Q_9TqvRsdCOXNARv98ueqalu_BPKBjkvy2DBf3",
-						"width": 5395
-					}
-				],
-				"place_id": "ChIJeaIbjyqaP44Rme3Zer1VQ_I",
-				"price_level": 2,
-				"rating": 4.3,
-				"reference": "ChIJeaIbjyqaP44Rme3Zer1VQ_I",
-				"scope": "GOOGLE",
-				"types": [
-					"restaurant",
-					"food",
-					"point_of_interest",
-					"establishment"
-				],
-				"user_ratings_total": 969,
-				"vicinity": "Cl. 39 ##21-11"
-			}
-		],
-		"status": "OK"
-	},
-	"statusCode": 201,
-	"message": "OK",
-	"timestamp": "2022-07-06T00:55:46.121Z",
-	"path": "/v1/places"
+   "data": {
+      "html_attributions": [],
+      "results": [
+         {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+               "location": {
+                  "lat": 4.627510900000001,
+                  "lng": -74.0745419
+               },
+               "viewport": {
+                  "northeast": {
+                     "lat": 4.628918079892722,
+                     "lng": -74.07318367010727
+                  },
+                  "southwest": {
+                     "lat": 4.626218420107278,
+                     "lng": -74.07588332989272
+                  }
+               }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "elbarrio Restaurante",
+            "opening_hours": {
+               "open_now": true
+            },
+            "photos": [
+               {
+                  "height": 3594,
+                  "html_attributions": [
+                     "<a href=\"https://maps.google.com/maps/contrib/113041926879556307798\">A Google User<\/a>"
+                  ],
+                  "photo_reference": "Aap_uEANowYA_6qtIPrSlO27w5S7SR4gqTOZjSZje6po1CSKcrHxauK9Y-DLCCDqeYePLC5eWqVM3dNNHeiClRO53ubTAU84pGWDXQrGj-BzQO0QlHmzarX8oA44H1XyWKc-jp9nd8zNx5Q_9TqvRsdCOXNARv98ueqalu_BPKBjkvy2DBf3",
+                  "width": 5395
+               }
+            ],
+            "place_id": "ChIJeaIbjyqaP44Rme3Zer1VQ_I",
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJeaIbjyqaP44Rme3Zer1VQ_I",
+            "scope": "GOOGLE",
+            "types": [
+               "restaurant",
+               "food",
+               "point_of_interest",
+               "establishment"
+            ],
+            "user_ratings_total": 969,
+            "vicinity": "Cl. 39 ##21-11"
+         }
+      ],
+      "status": "OK"
+   },
+   "statusCode": 201,
+   "message": "OK",
+   "timestamp": "2022-07-06T00:55:46.121Z",
+   "path": "/v1/places"
 }
 ```
 
