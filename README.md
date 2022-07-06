@@ -16,8 +16,7 @@ I used JWT (Json web token, package) to authenticate endpoints.
 
 #### login
 
-url:
-get `http://3.23.95.238:3000/v1/auth`
+Get `http://3.23.95.238:3000/v1/auth`
 
 <img width="1143" alt="login" src="https://user-images.githubusercontent.com/13957703/177443827-c1bec9f1-b11f-4572-ac5d-e329002bd873.png">
 
@@ -56,8 +55,7 @@ get `http://3.23.95.238:3000/v1/auth`
 
 ## Register a new user
 
-url:
-post `http://3.23.95.238:3000/v1/auth/save`
+Post `http://3.128.79.253:3000/v1/auth/save`
 
 <img width="1137" alt="register_succes" src="https://user-images.githubusercontent.com/13957703/177445731-4796220d-4459-496e-94f3-fdd9f743c70d.png">
 
@@ -204,9 +202,7 @@ POST: `http://3.128.79.253:3000/v1/places`
 
 ## DATABASE mysql
 
-![mei_db](https://user-images.githubusercontent.com/13957703/137559577-1c15f346-bd21-41b0-a180-74ca370d4311.png)
-
-<img width="938" alt="Screen Shot 2021-10-15 at 5 21 32 PM" src="https://user-images.githubusercontent.com/13957703/137559610-b621877f-b336-4b73-a4e3-011f7b9b2346.png">
+<img width="1066" alt="Screen Shot 2022-07-05 at 8 30 20 PM" src="https://user-images.githubusercontent.com/13957703/177447970-bd28f214-607b-4f5b-a16e-cfedeb5bf04d.png">
 
 ## Project Description
 
