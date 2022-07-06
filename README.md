@@ -214,6 +214,8 @@ The project was created using NestJs framework (which is based on ExpressJs and 
 
 #### Components
 
+<img width="464" alt="Screen Shot 2022-07-05 at 8 34 45 PM" src="https://user-images.githubusercontent.com/13957703/177448475-d7a6371e-bb27-4199-8137-1a5efb06bf0c.png">
+
 I organized the different modules in components. These follow one of the S.O.L.I.D principles, the single responsability, each one addresses a specific and unique task, for instance: auth, users, dna, etc.
 
 #### Controllers Folder
