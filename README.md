@@ -210,7 +210,7 @@ The project was created using NestJs framework (which is based on ExpressJs and 
 
 ## Project Struct
 
-<img width="356" alt="assets" src="https://user-images.githubusercontent.com/13957703/137554883-b0ce63a9-0fae-4093-aff4-2ef4bfd56050.png">
+<img width="374" alt="Screen Shot 2022-07-05 at 8 31 49 PM" src="https://user-images.githubusercontent.com/13957703/177448106-ac8d1198-ea49-4b8a-b69a-e2bae76c568b.png">
 
 #### Components
 
@@ -222,28 +222,28 @@ Controllers in NestJS work as bridge to manage incoming data, they're just inter
 
 `places.controllers.ts`
 
-#### Manager File
+#### Manager File (Interface to bind components)
 
-The component's manager is used as a facade to interact with internal classes and being used by other components without exposing the internal functionality of each component.This ensures that all component functionalities are used only by through this facade component.
+The component's manager is used as a facade to interact with internal classes and being used by other components without exposing the internal functionality of each component. This ensures that all component functionalities are used only by through this facade component.
 
 The manager is in charge of calling providers of functionalities with dependency injection, i mean, the services files.
 
 `places.manager.ts`
 
-#### Models Folder
+#### Models Folder (DATA LAYER)
 
 The models folders contain entities and providers. Entities describe the data model
 and the providers repositories allows to list them externally.
 
-#### Services Folder
+#### Services Folder (DOMAIN LAYER)
 
 This folder contains all business logic, all behaviour and functionalities for the component, services are usuallycalled by manager or themselves.
 
-`validator.service.ts`
+`places.service.ts`
 
 ## Debug in console
 
-<img width="890" alt="Screen Shot 2021-10-15 at 5 30 44 PM" src="https://user-images.githubusercontent.com/13957703/137561182-a80806a3-83a0-444d-930f-4fa1dae7b3cb.png">
+<img width="960" alt="Screen Shot 2022-07-05 at 8 32 41 PM" src="https://user-images.githubusercontent.com/13957703/177448189-22130cc1-99f5-42fd-bb5a-52abe9150c81.png">
 
 ## Stay in touch
 
