@@ -112,7 +112,7 @@ If the JWT token is missing the service will return an unauthorized 401 status:
 
 To fix this the JWT header must be included:
 
-<img width="801" alt="Screen Shot 2021-10-15 at 5 12 57 PM" src="https://user-images.githubusercontent.com/13957703/137559022-2eb27e15-f399-4ee3-b048-e6c1cba79935.png">
+<img width="1140" alt="Screen Shot 2022-07-05 at 8 27 23 PM" src="https://user-images.githubusercontent.com/13957703/177447707-327fe12e-debc-4c59-8b28-aa2b0a02a127.png">
 
 ```json
 {
