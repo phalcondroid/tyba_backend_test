@@ -7,7 +7,7 @@ export const DatabaseProvider = {
   inject: [DatabaseConfig],
   useFactory: async (config: DatabaseConfig) => {
     console.log(config);
-    const sequelize = new Sequelize({
+    let sequelize = new Sequelize({
       dialect: 'mysql',
       host: config.host,
       port: config.port,
@@ -20,6 +20,14 @@ export const DatabaseProvider = {
         force: config.sync_alter,
       },
     });
+
+    if (process.env.NODE_ENV == 'test') {
+      sequelize = new Sequelize({
+        dialect: 'sqlite',
+        storage: './sqlite3',
+        logging: false,
+      });
+    }
     sequelize.addModels([UsersModel]);
     await sequelize.sync();
     return sequelize;

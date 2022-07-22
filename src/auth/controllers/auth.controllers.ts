@@ -30,8 +30,7 @@ export class AuthController {
 
   @Post('save')
   async register(@Body() user: UsersModel): Promise<StartSessionResponse> {
-    const exist = this.usersManager.getUserByUsername(user.username);
-    console.log('existeeee', (await exist).username);
+    const exist = await this.usersManager.getUserByUsername(user.username);
     if (exist != null) {
       throw new AlreadyExistException();
     }

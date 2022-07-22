@@ -3,9 +3,6 @@ import { DatabaseConfig } from './config/database.config';
 import { DatabaseProvider } from './model_providers/database.provider';
 
 @Module({
-  providers: [
-    DatabaseConfig,
-    DatabaseProvider
-  ],
+  providers: [DatabaseConfig, DatabaseProvider],
 })
 export class DatabaseModule {}
