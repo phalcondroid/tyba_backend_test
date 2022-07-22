@@ -247,6 +247,13 @@ This folder contains all business logic, all behaviour and functionalities for t
 
 <img width="960" alt="Screen Shot 2022-07-05 at 8 32 41 PM" src="https://user-images.githubusercontent.com/13957703/177448189-22130cc1-99f5-42fd-bb5a-52abe9150c81.png">
 
+## Testing and coverage
+
+Integration and unit test for users module.
+
+<img width="858" alt="Screen Shot 2022-07-22 at 1 54 46 PM" src="https://user-images.githubusercontent.com/13957703/180505503-a4cf5788-a047-4ecc-a9ed-fef101669927.png">
+
+
 ## Stay in touch
 
 - Author - Julian Arturo Molina Castiblanco
