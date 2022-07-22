@@ -1,73 +1,253 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://acis.org.co/portal/sites/default/files/logo%20tyba.png" width="320"/></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Technical results
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Insomnia client
+<img width="934" alt="Screen Shot 2021-10-15 at 5 42 14 PM" src="https://user-images.githubusercontent.com/13957703/137561777-0ed84770-d071-4513-b0c7-aabbc3492771.png">
 
-## Description
+Project url:
+`http://3.128.79.253:3000/`
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Authentication endpoints 
 
-## Installation
+I used JWT (Json web token, package) to authenticate endpoints.
 
-```bash
-$ npm install
+#### login
+
+Get `http://3.23.95.238:3000/v1/auth`
+
+<img width="1143" alt="login" src="https://user-images.githubusercontent.com/13957703/177443827-c1bec9f1-b11f-4572-ac5d-e329002bd873.png">
+
+###### request
+```json
+{
+  "username": "tyba_user",
+  "password": "Tyba1234"
+}
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+###### response:
+```json
+{  
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5YmFfdXNlciIsInN1YiI6NywiaWF0IjoxNjU3MDY4NTg1LCJleHAiOjE2NTcwNjg2NDV9.KYip699hmKiML0E0y_TcaqPtvkjQK3IZJveYAhZoiPg",
+    "user": {
+      "id": 7,
+      "name": "julian molina",
+      "email": "julian@tyba.com",
+      "phone": "3012735668",
+      "address": "calle fake 123",
+      "username": "tyba_user",
+      "password": "hidden",
+      "status": null,
+      "createdAt": "2022-07-05T23:03:18.000Z",
+      "updatedAt": "2022-07-05T23:03:18.000Z"
+    }
+  },
+  "statusCode": 201,
+  "message": "OK",
+  "timestamp": "2022-07-06T00:49:45.204Z",
+  "path": "/v1/auth"
+}
 ```
 
-## Test
+## Register a new user
 
-```bash
-# unit tests
-$ npm run test
+Post `http://3.128.79.253:3000/v1/auth/save`
 
-# e2e tests
-$ npm run test:e2e
+<img width="1137" alt="register_succes" src="https://user-images.githubusercontent.com/13957703/177445731-4796220d-4459-496e-94f3-fdd9f743c70d.png">
 
-# test coverage
-$ npm run test:cov
+#### Request
+
+```json
+{
+  "name": "julian molina",
+  "email": "julia#2n@tyba.com",
+  "phone": "3012735668",
+  "address": "calle fake 123",
+  "username": "tyba_user_2",
+  "password": "Tyba1234"
+}
 ```
 
-## Support
+##### Response
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```json
+{  
+  "data": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InR5YmFfdXNlciIsInN1YiI6NywiaWF0IjoxNjU3MDY4NTg1LCJleHAiOjE2NTcwNjg2NDV9.KYip699hmKiML0E0y_TcaqPtvkjQK3IZJveYAhZoiPg",
+    "user": {
+      "id": 7,
+      "name": "julian molina",
+      "email": "julia#2n@tyba.com",
+      "phone": "3012735668",
+      "address": "calle fake 123",
+      "username": "tyba_user_2",
+      "password": "hidden",
+      "status": null,
+      "createdAt": "2022-07-05T23:05:18.000Z",
+      "updatedAt": "2022-07-05T23:05:18.000Z"
+    }
+  },
+  "statusCode": 201,
+  "message": "OK",
+  "timestamp": "2022-07-06T00:49:45.204Z",
+  "path": "/v1/auth"
+}
+```
+
+##### IF user exist
+
+<img width="1145" alt="register_exist" src="https://user-images.githubusercontent.com/13957703/177446474-a5ea6748-7ec4-4d75-8b24-5d6c9e48d8d3.png">
+
+## Unauthorized by token expired
+
+If the JWT token is missing the service will return an unauthorized 401 status:
+
+<img width="1144" alt="unauthorized" src="https://user-images.githubusercontent.com/13957703/177444345-2dd69c75-7ef8-41a0-ab6e-186f49a6cf6c.png">
+
+To fix this the JWT header must be included:
+
+<img width="1140" alt="Screen Shot 2022-07-05 at 8 27 23 PM" src="https://user-images.githubusercontent.com/13957703/177447707-327fe12e-debc-4c59-8b28-aa2b0a02a127.png">
+
+```json
+{
+  "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1lbGkiLCJzdWIiOjIsImlhdCI6MTYzNDMzNTQwMiwiZXhwIjoxNjM0MzM1NDYyfQ.Vu8eoSiYdsVe9SlXAC3rRp2_NwJIpYI1jCwen424cqc"
+}
+```
+
+## Places endpoint
+
+POST: `http://3.128.79.253:3000/v1/places`
+
+<img width="1143" alt="places" src="https://user-images.githubusercontent.com/13957703/177445403-e25bdf4d-f60e-4bbe-adc4-714aa3f21b9d.png">
+
+##### request 
+
+```json
+{
+  "keyword": "bogota",
+  "lat": "4.624335",
+  "lng": "-74.063644"
+}
+```
+
+##### response
+
+```json
+{
+   "data": {
+      "html_attributions": [],
+      "results": [
+         {
+            "business_status": "OPERATIONAL",
+            "geometry": {
+               "location": {
+                  "lat": 4.627510900000001,
+                  "lng": -74.0745419
+               },
+               "viewport": {
+                  "northeast": {
+                     "lat": 4.628918079892722,
+                     "lng": -74.07318367010727
+                  },
+                  "southwest": {
+                     "lat": 4.626218420107278,
+                     "lng": -74.07588332989272
+                  }
+               }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+            "name": "elbarrio Restaurante",
+            "opening_hours": {
+               "open_now": true
+            },
+            "photos": [
+               {
+                  "height": 3594,
+                  "html_attributions": [
+                     "<a href=\"https://maps.google.com/maps/contrib/113041926879556307798\">A Google User<\/a>"
+                  ],
+                  "photo_reference": "Aap_uEANowYA_6qtIPrSlO27w5S7SR4gqTOZjSZje6po1CSKcrHxauK9Y-DLCCDqeYePLC5eWqVM3dNNHeiClRO53ubTAU84pGWDXQrGj-BzQO0QlHmzarX8oA44H1XyWKc-jp9nd8zNx5Q_9TqvRsdCOXNARv98ueqalu_BPKBjkvy2DBf3",
+                  "width": 5395
+               }
+            ],
+            "place_id": "ChIJeaIbjyqaP44Rme3Zer1VQ_I",
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJeaIbjyqaP44Rme3Zer1VQ_I",
+            "scope": "GOOGLE",
+            "types": [
+               "restaurant",
+               "food",
+               "point_of_interest",
+               "establishment"
+            ],
+            "user_ratings_total": 969,
+            "vicinity": "Cl. 39 ##21-11"
+         }
+      ],
+      "status": "OK"
+   },
+   "statusCode": 201,
+   "message": "OK",
+   "timestamp": "2022-07-06T00:55:46.121Z",
+   "path": "/v1/places"
+}
+```
+
+## DATABASE mysql
+
+<img width="1066" alt="Screen Shot 2022-07-05 at 8 30 20 PM" src="https://user-images.githubusercontent.com/13957703/177447970-bd28f214-607b-4f5b-a16e-cfedeb5bf04d.png">
+
+## Project Description
+
+The project was created using NestJs framework (which is based on ExpressJs and Fastify),a clean architecture, JWT and MySQL database connections.
+
+## Project Struct
+
+<img width="374" alt="Screen Shot 2022-07-05 at 8 31 49 PM" src="https://user-images.githubusercontent.com/13957703/177448106-ac8d1198-ea49-4b8a-b69a-e2bae76c568b.png">
+
+#### Components
+
+<img width="464" alt="Screen Shot 2022-07-05 at 8 34 45 PM" src="https://user-images.githubusercontent.com/13957703/177448475-d7a6371e-bb27-4199-8137-1a5efb06bf0c.png">
+
+I organized the different modules in components. These follow one of the S.O.L.I.D principles, the single responsability, each one addresses a specific and unique task, for instance: auth, users, places, common etc.
+
+#### Controllers Folder
+
+Controllers in NestJS work as bridge to manage incoming data, they're just interfaces to receive and send data to the clients.
+
+`places.controllers.ts`
+
+#### Manager File (Interface to bind components)
+
+The component's manager is used as a facade to interact with internal classes and being used by other components without exposing the internal functionality of each component. This ensures that all component functionalities are used only by through this facade component.
+
+The manager is in charge of calling providers of functionalities with dependency injection, i mean, the services files.
+
+`places.manager.ts`
+
+#### Models Folder (DATA LAYER)
+
+The models folders contain entities and providers. Entities describe the data model
+and the providers repositories allows to list them externally.
+
+#### Services Folder (DOMAIN LAYER)
+
+This folder contains all business logic, all behaviour and functionalities for the component, services are usuallycalled by manager or themselves.
+
+`places.service.ts`
+
+## Debug in console
+
+<img width="960" alt="Screen Shot 2022-07-05 at 8 32 41 PM" src="https://user-images.githubusercontent.com/13957703/177448189-22130cc1-99f5-42fd-bb5a-52abe9150c81.png">
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Author - Julian Arturo Molina Castiblanco
+- Email  - phalcondroid@gmail.com
